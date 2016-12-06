@@ -1,0 +1,43 @@
+<div class="wrapper">
+<div class="right">
+  <h4><a href="/events">Go Back to Events</a></h4>
+</div>
+<h1><%= @event.name %></h1>
+
+
+<p>Host: <%= @event.user.first_name %> <%= @event.user.last_name %> </p>
+<p>Date: <%= @event.date %>
+<p>Location: <%= @event.city %>, <%= @event.state %> </p>
+<p>
+  People who are joining the event: <%=@event.attendees.length%>
+</p>
+
+<div class="main-left">
+<table>
+  <thead>
+    <th>
+      Name
+    </th>
+    <th>
+      Location
+    </th>
+    <th>
+      State
+    </th>
+  </thead>
+  <% @event.users_attending.each do |user| %>
+  <tr>
+    <td>
+      <%= user.first_name %> <%=user.last_name %>
+    </td>
+    <td>
+      <%= user.city %>
+    </td>
+    <td>
+      <%= user.state %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+</div>
+</div>

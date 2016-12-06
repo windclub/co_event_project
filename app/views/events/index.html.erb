@@ -1,0 +1,107 @@
+<div class="wrapper">
+<div class="right">
+  <h4><a href="/logout">Logout</a></h4>
+</div>
+
+<h1>Events</h1>
+<h2>Hello, <%= @user.first_name %></h2>
+
+
+<div class="errors">
+      <% if flash[:errors] %>
+        <% flash[:errors].each do |e| %>
+          <p><%= e %></p>
+        <% end %>
+      <% end %>
+</div>
+<h3>Here are the events in your state:</h3>
+<table>
+ <thead>
+   <tr>
+     <td>Name</td>
+     <td>Date</td>
+     <td>Location</td>
+     <td>Host</td>
+     <td>Actions</td>
+   </tr>
+ </thead>
+ <tbody>
+   <% @events_in_state.each do |event| %>
+     <tr>
+       <td><a href="/events/show/<%= event.id %>"><%= event.name %></a></td>
+       <td><%= event.date %></td>
+       <td><%= event.city %></td>
+       <td><%= event.user.first_name %><br>
+         event.user.id = <%= event.user.id %><br>
+          @user.id = <%= @user.id %><br>
+          @user = <%= @user %>
+
+       </td>
+       <td>
+         <% if event.user.id == @user.id %>
+           <a href="/events/edit/<%= event.id %>">Edit</a> |
+           <a href="/events/delete/<%= event.id %>" data-method="delete">Delete</a>
+         <% elsif event.users_attending.include? @user%>
+           You are attending | <br>
+           <a href="/events/leave/<%= event.id %>">Leave Event</a>
+         <% else %>
+           <a href="/events/join/<%= event.id %>">Join</a>
+         <% end %>
+       </td>
+     </tr>
+   <% end %>
+ </tbody>
+</table>
+
+<h3>Here are some out of town events:</h3>
+<table>
+ <thead>
+   <tr>
+     <td>Name</td>
+     <td>Date</td>
+     <td>Location</td>
+     <td>State</td>
+     <td>Host</td>
+     <td>Actions</td>
+   </tr>
+ </thead>
+ <tbody>
+   <% @events_out_state.each do |event| %>
+     <tr>
+       <td><a href="/events/show/<%= event.id %>"><%= event.name %></a></td>
+       <td><%= event.date %></td>
+       <td><%= event.city %></td>
+       <td><%= event.state %></td>
+       <td><%= event.user.first_name %></td>
+       <td>
+         <% if event.user.id == @user.id %>
+           <a href="/events/edit/<%= event.id %>">Edit</a> |
+           <a href="/events/delete/<%= event.id %>" data-method="delete">Delete</a>
+         <% elsif event.users_attending.include? @user%>
+           You are attending | <br>
+           <a href="/events/leave/<%= event.id %>">Leave Event</a>
+         <% else %>
+           <a href="/events/join/<%= event.id %>">Join</a>
+         <% end %>
+       </td>
+     </tr>
+   <% end %>
+ </tbody>
+</table>
+
+<h2>Add Event</h2>
+<div class="form">
+  <form action="/events" method="post">
+    <fieldset>
+      <legend>Event:</legend>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      Name: <input type="text" name="event[name]">
+      Date: <input type="date" name="event[date]"><br><br>
+      Location: <input type="text" name="event[city]">
+      State: <input type="text" name="event[state]">
+      <input type="submit" name="name" value="Submit">
+    </fieldset>
+  </form>
+</div>
+
+</div>

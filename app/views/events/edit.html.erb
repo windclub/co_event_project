@@ -1,0 +1,23 @@
+<div class="wrapper">
+  <div class="right">
+    <h4><a href="/logout">Logout</a></h4>
+    <h4><a href="/events">Back to Events</a></h4>
+  </div>
+
+<h1>Edit Event</h1>
+
+<div class="form">
+  <form action="/events/update/<%=@event.id%>" method="post">
+    <fieldset>
+      <legend>Event:</legend>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      Name: <input type="text" name="event[name]" value="<%=@event.name%>">
+      Date: <input type="date" name="event[date]" value="<%=@event.date%>"><br><br>
+      Location: <input type="text" name="event[city]" value="<%=@event.city%>">
+      State: <input type="text" name="event[state]" value="<%=@event.state%>">
+      <input type="submit" name="name" value="Update Event">
+    </fieldset>
+  </form>
+</div>
+
+</div>

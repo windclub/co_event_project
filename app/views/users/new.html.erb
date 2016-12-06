@@ -1,0 +1,42 @@
+<div class="wrapper">
+<div class="right">
+  <h4><a href="/login">Login</a></h4>
+</div>
+<h1>Register</h1>
+
+<div class="errors">
+      <% if flash[:errors] %>
+        <% flash[:errors].each do |e| %>
+          <p><%= e %></p>
+        <% end %>
+      <% end %>
+</div>
+
+<div class="form">
+  <form action="/users" method="post">
+    <fieldset>
+      <legend>Register:</legend>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      First Name: <input type="text" name="user[first_name]">
+      Last Name: <input type="text" name="user[last_name]">
+      Email: <input type="text" name="user[email]">
+      Location: <input type="text" name="user[city]">
+      State: <input type="text" name="user[state]">
+      Password: <input type="password" name="user[password]">
+      Confirm Password: <input type="password" name="user[password_conf]">
+      <input type="submit" name="name" value="Submit">
+    </fieldset>
+  </form>
+</div>
+<!-- <div class="form">
+  <form action="/users" method="post">
+    <fieldset>
+      <legend>Login:</legend>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      Email: <input type="text" name="user[email]">
+      Password: <input type="password" name="user[password]">
+      <input type="submit" name="name" value="Submit">
+    </fieldset>
+  </form>
+</div> -->
+</div>

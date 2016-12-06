@@ -1,0 +1,98 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.wrapper{
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+body {
+  font-family: 'Montserrat', serif;
+  color: #062f4f;
+}
+
+.right {
+  text-align: right;
+}
+
+.main-left {
+  width: 450px;
+  display: inline-block;
+}
+
+.errors {
+  color: red;
+}
+
+table, td, th {
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0px 20px 10px;
+}
+
+th, td {
+    padding: 15px;
+}
+
+tr:nth-child(even) {
+  background-color: #FAEBD7;
+}
+
+.form {
+  width: 500px;
+  margin-right: 20px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+fieldset {
+  border:3px solid #6b7a8f;
+  padding: 25px;
+}
+
+.comment {
+  width: 600px;
+  margin: auto;
+}
+
+input[type=text], select {
+    font-size: 18px;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=password], select {
+    font-size: 18px;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #000000;
+    font-size: 18px;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
